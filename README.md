@@ -2,6 +2,10 @@
 
 **Holo** is a restrained sci-fi HUD theme for [WezTerm](https://wezfurlong.org/wezterm/), packaged as a WezTerm plugin.
 
+<img width="520" height="339" alt="HoloDefault" src="https://github.com/user-attachments/assets/e1969754-643b-453f-b3fd-073f9acec38f" />
+
+<img width="520" height="339" alt="HoloSolid" src="https://github.com/user-attachments/assets/5620386c-b6c3-46be-b05a-619914536bc8" />
+
 - One dominant hue: everything structural (borders, cursor, active tab) is a shade of cyan.
 - Pale ice-blue body text. Saturated cyan is kept for accents.
 - Translucent navy "glass" background, with Acrylic blur on Windows 11.
