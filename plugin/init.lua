@@ -78,14 +78,15 @@ local function scheme(h)
 			"#eaf7ff", -- bright white
 		},
 
+		-- HUD tab strip: no solid cyan block; the active tab is a lifted panel with
+		-- cyan text, inactive tabs sink into the glass.
 		tab_bar = {
 			background = h.bg,
-			inactive_tab_edge = h.accent_dim,
-			active_tab = { bg_color = h.accent, fg_color = h.bg, intensity = "Bold" },
-			inactive_tab = { bg_color = h.bar, fg_color = h.dim },
-			inactive_tab_hover = { bg_color = h.surface, fg_color = h.fg },
+			active_tab = { bg_color = h.selection, fg_color = h.accent, intensity = "Bold" },
+			inactive_tab = { bg_color = h.bg, fg_color = h.dim },
+			inactive_tab_hover = { bg_color = h.bar, fg_color = h.fg },
 			new_tab = { bg_color = h.bg, fg_color = h.accent_dim },
-			new_tab_hover = { bg_color = h.surface, fg_color = h.accent },
+			new_tab_hover = { bg_color = h.bar, fg_color = h.accent },
 		},
 	}
 end
@@ -152,7 +153,12 @@ function M.apply_to_config(config, opts)
 	-- Fade unfocused wezterm panes slightly
 	config.inactive_pane_hsb = { saturation = 0.8, brightness = 0.75 }
 
-	-- Title bar / fancy tab bar
+	-- Retro tab bar: drawn in the terminal font as cells, so it matches the text
+	-- (the fancy bar uses its own font and rounded tabs that look like browser tabs)
+	config.use_fancy_tab_bar = false
+	config.tab_max_width = 32
+
+	-- Title bar (only used with integrated title bar buttons)
 	config.window_frame = {
 		active_titlebar_bg = h.bg,
 		inactive_titlebar_bg = h.bg,
